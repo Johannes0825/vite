@@ -1,0 +1,20 @@
+(function(){const n=document.createElement("link").relList;if(n&&n.supports&&n.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))i(t);new MutationObserver(t=>{for(const r of t)if(r.type==="childList")for(const l of r.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&i(l)}).observe(document,{childList:!0,subtree:!0});function o(t){const r={};return t.integrity&&(r.integrity=t.integrity),t.referrerPolicy&&(r.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?r.credentials="include":t.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function i(t){if(t.ep)return;t.ep=!0;const r=o(t);fetch(t.href,r)}})();const u="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20aria-hidden='true'%20role='img'%20class='iconify%20iconify--logos'%20width='32'%20height='32'%20preserveAspectRatio='xMidYMid%20meet'%20viewBox='0%200%20256%20256'%3e%3cpath%20fill='%23F7DF1E'%20d='M0%200h256v256H0V0Z'%3e%3c/path%3e%3cpath%20d='m67.312%20213.932l19.59-11.856c3.78%206.701%207.218%2012.371%2015.465%2012.371c7.905%200%2012.89-3.092%2012.89-15.12v-81.798h24.057v82.138c0%2024.917-14.606%2036.259-35.916%2036.259c-19.245%200-30.416-9.967-36.087-21.996m85.07-2.576l19.588-11.341c5.157%208.421%2011.859%2014.607%2023.715%2014.607c9.969%200%2016.325-4.984%2016.325-11.858c0-8.248-6.53-11.17-17.528-15.98l-6.013-2.58c-17.357-7.387-28.87-16.667-28.87-36.257c0-18.044%2013.747-31.792%2035.228-31.792c15.294%200%2026.292%205.328%2034.196%2019.247l-18.732%2012.03c-4.125-7.389-8.591-10.31-15.465-10.31c-7.046%200-11.514%204.468-11.514%2010.31c0%207.217%204.468%2010.14%2014.778%2014.608l6.014%202.577c20.45%208.765%2031.963%2017.7%2031.963%2037.804c0%2021.654-17.012%2033.51-39.867%2033.51c-22.339%200-36.774-10.654-43.819-24.574'%3e%3c/path%3e%3c/svg%3e",d="/my-landing-page/vite.svg";function g(e){let n=0;const o=i=>{n=i,e.innerHTML=`count is ${n}`};e.addEventListener("click",()=>o(n+1)),o(0)}const c=[];for(let e=0;e<256;++e)c.push((e+256).toString(16).slice(1));function s(e,n=0){return(c[e[n+0]]+c[e[n+1]]+c[e[n+2]]+c[e[n+3]]+"-"+c[e[n+4]]+c[e[n+5]]+"-"+c[e[n+6]]+c[e[n+7]]+"-"+c[e[n+8]]+c[e[n+9]]+"-"+c[e[n+10]]+c[e[n+11]]+c[e[n+12]]+c[e[n+13]]+c[e[n+14]]+c[e[n+15]]).toLowerCase()}let a;const h=new Uint8Array(16);function m(){if(!a){if(typeof crypto>"u"||!crypto.getRandomValues)throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");a=crypto.getRandomValues.bind(crypto)}return a(h)}const p={};function y(e,n,o){let i;{const t=Date.now(),r=m();v(p,t,r),i=x(r,p.msecs,p.seq,n,o)}return n??s(i)}function v(e,n,o){return e.msecs??=-1/0,e.seq??=0,n>e.msecs?(e.seq=o[6]<<23|o[7]<<16|o[8]<<8|o[9],e.msecs=n):(e.seq=e.seq+1|0,e.seq===0&&e.msecs++),e}function x(e,n,o,i,t=0){if(e.length<16)throw new Error("Random bytes length must be >= 16");if(!i)i=new Uint8Array(16),t=0;else if(t<0||t+16>i.length)throw new RangeError(`UUID byte range ${t}:${t+15} is out of buffer bounds`);return n??=Date.now(),o??=e[6]*127<<24|e[7]<<16|e[8]<<8|e[9],i[t++]=n/1099511627776&255,i[t++]=n/4294967296&255,i[t++]=n/16777216&255,i[t++]=n/65536&255,i[t++]=n/256&255,i[t++]=n&255,i[t++]=112|o>>>28&15,i[t++]=o>>>20&255,i[t++]=128|o>>>14&63,i[t++]=o>>>6&255,i[t++]=o<<2&255|e[10]&3,i[t++]=e[11],i[t++]=e[12],i[t++]=e[13],i[t++]=e[14],i[t++]=e[15],i}document.querySelector("#app").innerHTML=`
+  <div>
+    <a href="https://vite.dev" target="_blank">
+      <img src="${d}" class="logo" alt="Vite logo" />
+    </a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+      <img src="${u}" class="logo vanilla" alt="JavaScript logo" />
+    </a>
+    <h1>Hello Vite!</h1>
+    <div class="card">
+      <button id="counter" type="button"></button>
+    </div>
+    <p class="read-the-docs">
+      Click on the Vite logo to learn more
+    </p>
+
+    <p>UUID: ${y()}</p>
+    <p>Crypto: ${crypto.randomUUID()}</p>
+  </div>
+`;g(document.querySelector("#counter"));
